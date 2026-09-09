@@ -1,0 +1,101 @@
+body{
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    font-family: "Playfair Display", serif;
+    line-height: 1.8;
+}
+.bg-video {
+    position: fixed;
+    filter: blur(5px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(0px);
+    transition: filter 0.3s ease;
+}
+.bg-video.blur {
+    filter: blur(5px);
+}
+.letterMail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#muteBtn{
+    background: none;
+    font-size: 30px;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+}
+#openLetter{
+    width: 200px;
+    height: auto;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+#openLetter.opening {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 0;
+}
+.letterContent{
+    display: none;
+    background-color: rgb(245, 240, 164);
+    background-image: url(./media/letterPaper.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    width: 70vw;
+    height: 300px;
+    border-radius: 10px;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+#content {
+    white-space: pre-line;
+    height: 220px;      /* Fixed height */
+    overflow-y: auto;   /* Vertical scrollbar */
+    white-space: pre-line;
+    padding-right: 5px;
+}
+#content::-webkit-scrollbar {
+    width: 8px;
+}
+#content::-webkit-scrollbar-thumb {
+    background: #E3D0AF;
+    border-radius: 10px;
+}
+
+#content::-webkit-scrollbar-thumb:hover {
+    background: #d6c4a5;
+}
+@media (min-width: 768px) {
+    #openLetter{
+        width: 400px;
+        height: auto;
+    }
+    #content {
+        height: 300px;
+    }
+    .letterContent {
+        width: 50vw;
+        height: 400px;
+    }
+}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
